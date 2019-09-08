@@ -1,0 +1,34 @@
+# -*- coding: utf8 -*-
+import sys
+import tkinter as tk
+import tkinter.messagebox as tkm
+
+
+root = tk.Tk()
+root.title(u"Myself")
+root.geometry('400x300')
+
+
+# ボタンが押されたら呼び出される関数
+def deleteEntry(event):
+    # Entryの中身をすべて削除します
+    Entry1.delete(0, tk.END)
+
+
+#ラベル
+Static1 = tk.Label(text=u"I'm YoshiokaSho. call to me Sho.", foreground='#ff0000', background='#90caf9')
+Static1.place(x=100, y=10)
+
+#Entry
+Entry1 = tk.Entry()
+Entry1 = tk.Entry(width=30)
+Entry1.insert(tk.END, u'挿入する文字列')
+Entry1.place(x=100,y=35)
+
+
+#Button
+Button1 = tk.Button(text=u'削除ボタン', width=30)
+Button1.bind("<Button-1>", deleteEntry)
+Button1.place(x=100,y=60)
+
+root.mainloop()
