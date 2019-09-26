@@ -27,7 +27,7 @@ tree.heading(4,text="加通過(%)")
 # 2番目の引数-end:表の配置順序を最下部に配置
 #             (行インデックス番号を指定することもできる)
 # 3番目の引数-values:レコードの値をタプルで指定する
-tree.insert("","end",values=("あ"," "," "," "))
+tree.insert("","end",values=(" ","B","C","D"))
 tree.insert("","end",values=("い"," "," "," "))
 tree.insert("","end",values=("う"," "," "," "))
 tree.insert("","end",values=("え"," "," ","400.0"))
