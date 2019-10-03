@@ -1,0 +1,43 @@
+# -*- coding: utf-8 -*-
+import tkinter as tk
+import tkinter as ttk
+root = tk.Tk()
+root.title("tkinter>frame>table>lable")
+root.geometry("900x1000")
+#frameを定義する
+frame = ttk.Frame(root)
+#frameの中のラベルを作る
+label1 = tk.Label(frame, text ="        ", relief ="groove")
+label1.grid(row = 0, column = 0)
+label2 = tk.Label(frame, text ="tablex", relief ="groove")
+label2.grid(row = 0, column = 1)
+label3 = tk.Label(frame, text ="tabley", relief ="groove")
+label3.grid(row = 0, column = 2)
+label4 = tk.Label(frame, text ="tablez", relief ="groove")
+label4.grid(row = 0, column = 3)
+label5 = tk.Label(frame, text ="table001", relief ="groove")
+label5.grid(row = 1, column = 0)
+label6 = tk.Label(frame, text ="table006", relief ="groove")
+label6.grid(row = 1, column = 1)
+label7 = tk.Label(frame, text ="table007", relief ="groove")
+label7.grid(row = 1, column = 2)
+label8 = tk.Label(frame, text ="table008", relief ="groove")
+label8.grid(row = 1, column = 3)
+label9 = tk.Label(frame, text ="table002", relief ="groove")
+label9.grid(row = 2, column = 0)
+label10 = tk.Label(frame, text ="table010", relief ="groove")
+label10.grid(row = 2, column = 3)
+label11 = tk.Label(frame, text ="table011", relief ="groove")
+label11.grid(row = 3, column = 3)
+label12 = tk.Label(frame, text ="table012", relief ="groove")
+label12.grid(row = 14, column = 0)
+label13 = tk.Label(frame, text ="table013", relief ="groove")
+label13.grid(row = 14, column = 1)
+label14 = tk.Label(frame, text ="table014", relief ="groove")
+label14.grid(row = 14, column = 3)
+#frameの場所を指定する
+frame.place(x=600,y=200,width=300,height = 200)
+
+root.mainloop()
+#上詰めには成るがgrid線を利用したtabel作成可能
+#tableをframeの中に入れる方法成功
