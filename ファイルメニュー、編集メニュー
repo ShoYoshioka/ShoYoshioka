@@ -1,0 +1,36 @@
+# -*- coding:utf-8 -*-
+import sys
+import tkinter
+
+def test():
+    print('click')
+
+root = tkinter.Tk()
+root.title("タイトル")
+root.geometry("300x300")
+
+menubar = tkinter.Menu(root)
+filemenu = tkinter.Menu(menubar, tearoff=0)
+
+# ファイルメニュー
+filemenu.add_command(label="新規作成", command=test)
+filemenu.add_command(label="開く", command=test)
+filemenu.add_separator()
+filemenu.add_command(label="保存", command=test)
+filemenu.add_command(label="名前をつけて保存", command=test)
+filemenu.add_command(label="閉じる", command=test)
+menubar.add_cascade(label="ファイル", menu=filemenu)
+
+# 編集メニュー
+editmenu = tkinter.Menu(menubar, tearoff=0)
+editmenu.add_command(label="元に戻す", command=test)
+editmenu.add_separator()
+editmenu.add_command(label="切り取り", command=test)
+editmenu.add_command(label="コピー", command=test)
+editmenu.add_command(label="貼り付け", command=test)
+editmenu.add_command(label="削除", command=test)
+editmenu.add_command(label="全てを選択", command=test)
+menubar.add_cascade(label="編集", menu=editmenu)
+
+root.config(menu=menubar)
+root.mainloop()
