@@ -1,0 +1,20 @@
+from matplotlib import pyplot as plt
+import numpy as np
+import seaborn as sns
+
+def main():
+    data = np.genfromtxt("r-13graph.csv",delimiter=",")
+    plt.scatter(data[:,0], data[:,1]) # １列目のデータをx軸の値、2列目のデータをy軸の値として与える。
+    plt.xlabel("Penetration temperature") # x軸
+    plt.ylabel("Radiation temperature") # y軸
+   
+    x = np.array(data[:,0])
+    y = np.array(data[:,1])
+    z = np.polyfit(x,y,1)
+    
+    sns.regplot(x=data[:,0], y=data[:,1],ci=1)
+    
+    plt.show() # グラフの描画 
+
+if __name__ == '__main__':
+    main()
