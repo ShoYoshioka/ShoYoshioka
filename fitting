@@ -1,0 +1,1113 @@
+# -*- coding: utf-8 -*-
+import tkinter as tk
+import tkinter as ttk
+
+
+def canvas():    #キャンバスを出力する。
+    canvas = tk.Canvas(width = 700, height = 300, bg = "gray94")
+    canvas.place(x=60, y=680)
+    img = tk.PhotoImage(file="grain.png")
+    canvas.create_image(350, 150, image=img)
+    canvas.create_line(82, 252, 145, 236, fill="black",width=2)
+    canvas.create_line(145, 236, 205, 198, fill="black",width=2)
+    canvas.create_line(205, 198, 268, 170, fill="black",width=2)
+    canvas.create_line(268, 170, 393, 140, fill="black",width=2)
+    canvas.create_line(393, 140, 550, 11, fill="black",width=2)
+    canvas.create_line(551, 11, 580, 8, fill="black",width=2) 
+
+
+def title(root, tk):
+    #タイトルを入れる。
+    root.title("〇〇モジュール")
+    root.geometry("850x1000")
+    label1 = tk.Label(root, text="密粒度〇〇混合物(13)　AM10:00")  #文字ラベル設定
+    label1.place(x=50,y=30) 
+    label2 = tk.Label(root, text="試験月日　　　2019　年　09　月　12　日")  #文字ラベル設定
+    label2.place(x=500,y=10) # 場所を指定
+
+    #label3 = tk.Label(root, text="試験者　　　　　　高橋　雄央")  #文字ラベル設定
+    #label3.place(x=500,y=30) # 場所を指定
+    #label99の定義と場所指定をする。
+    #label99= tk.Label(root,text="7.58",width=5)
+    #label99.place(x=195,y=438)
+
+
+
+
+
+
+
+def bin1fun(root,ttk, tk, bin1):
+    bin1d = {
+        '4.75': round(float(bin1['4.75'])*100/float(bin1['total']),1),
+        '2.36': round(float(bin1['2.36'])*100/float(bin1['total']),1),
+        '0.60': round(float(bin1['0.60'])*100/float(bin1['total']),1),
+        '0.30': round(float(bin1['0.30'])*100/float(bin1['total']),1),
+        '0.15': round(float(bin1['0.15'])*100/float(bin1['total']),1),
+        '0.075': round(float(bin1['0.075'])*100/float(bin1['total']),1)
+    }
+    bin1s = {
+        '4.75': round(100-float(bin1['4.75'])*100/float(bin1['total']),1),
+        '2.36': round(100-float(bin1['2.36'])*100/float(bin1['total']),1),
+        '0.60': round(100-float(bin1['0.60'])*100/float(bin1['total']),1),
+        '0.30': round(100-float(bin1['0.30'])*100/float(bin1['total']),1),
+        '0.15': round(100-float(bin1['0.15'])*100/float(bin1['total']),1),
+        '0.075': round(100-float(bin1['0.075'])*100/float(bin1['total']),1)
+    }
+    
+    #frame13を定義してbin1fun関数を出力した。
+    frame13 = ttk.Frame(root)
+    label139 = tk.Label(frame13, text ="1BIN", relief ="groove",width=27)
+    label139.grid(row = 0, column = 0)
+    frame13.place(x=1,y=270)
+    #frame14を定義する。
+    frame14 = ttk.Frame(root)
+    #frame14の中にラベルを作る。
+    label140 = tk.Label(frame14, text ="試料重量", relief ="groove",width=13)
+    label140.grid(row = 0, column = 0)
+    label141 = tk.Label(frame14, text =bin1["total"], relief ="groove",width=13)
+    label141.grid(row = 0, column = 1)
+    #frame14の場所を指定する。
+    frame14.place(x=2,y=291)
+    #frame15を定義する。
+    frame15 = ttk.Frame(root)
+    #frame15の中にラベルを作る。
+    label142 = tk.Label(frame15, text =" ", relief ="groove",width=6)
+    label142.grid(row = 0, column = 0)
+    label143 = tk.Label(frame15, text ="重量", relief ="groove",width=6)
+    label143.grid(row = 0, column = 1)
+    label144 = tk.Label(frame15, text ="残量", relief ="groove",width=6)
+    label144.grid(row = 0, column = 2)
+    label145 = tk.Label(frame15, text ="通過", relief ="groove",width=6)
+    label145.grid(row = 0, column = 3)
+    label146 = tk.Label(frame15, text ='4.75', relief ="groove",width=6)
+    label146.grid(row = 1, column = 0)
+    label147 = tk.Label(frame15, text =bin1["4.75"], relief ="groove",width=6)
+    label147.grid(row = 1, column = 1)
+    label148 = tk.Label(frame15, text =bin1d["4.75"], relief ="groove",width=6)
+    label148.grid(row = 1, column = 2)
+    label149 = tk.Label(frame15, text =bin1s["4.75"], relief ="groove",width=6)
+    label149.grid(row = 1, column = 3)
+    label150 = tk.Label(frame15, text ="2.36", relief ="groove",width=6)
+    label150.grid(row = 2, column = 0)
+    label151 = tk.Label(frame15, text =bin1["2.36"], relief ="groove",width=6)
+    label151.grid(row = 2, column = 1)
+    label152 = tk.Label(frame15, text =bin1d["2.36"], relief ="groove",width=6)
+    label152.grid(row = 2, column = 2)
+    label153 = tk.Label(frame15, text =bin1s["2.36"], relief ="groove",width=6)
+    label153.grid(row = 2, column = 3)
+    label154 = tk.Label(frame15, text ="0.60", relief ="groove",width=6)
+    label154.grid(row = 3, column = 0)
+    label155 = tk.Label(frame15, text =bin1["0.60"], relief ="groove",width=6)
+    label155.grid(row = 3, column = 1)
+    label156 = tk.Label(frame15, text =bin1d["0.60"], relief ="groove",width=6)
+    label156.grid(row = 3, column = 2)
+    label157 = tk.Label(frame15, text =bin1s["0.60"], relief ="groove",width=6)
+    label157.grid(row = 3, column = 3)
+    label158 = tk.Label(frame15, text ="0.30", relief ="groove",width=6)
+    label158.grid(row = 4, column = 0)
+    label159 = tk.Label(frame15, text =bin1["0.30"], relief ="groove",width=6)
+    label159.grid(row = 4, column = 1)
+    label160 = tk.Label(frame15, text =bin1d["0.30"], relief ="groove",width=6)
+    label160.grid(row = 4, column = 2)
+    label161 = tk.Label(frame15, text =bin1s["0.30"], relief ="groove",width=6)
+    label161.grid(row = 4, column = 3)
+    label162 = tk.Label(frame15, text ="0.15", relief ="groove",width=6)
+    label162.grid(row = 5, column = 0)
+    label163 = tk.Label(frame15, text =bin1["0.15"], relief ="groove",width=6)
+    label163.grid(row = 5, column = 1)
+    label164 = tk.Label(frame15, text =bin1d["0.15"], relief ="groove",width=6)
+    label164.grid(row = 5, column = 2)
+    label165 = tk.Label(frame15, text =bin1s["0.15"], relief ="groove",width=6)
+    label165.grid(row = 5, column = 3)
+    label166 = tk.Label(frame15, text ="0.075", relief ="groove",width=6)
+    label166.grid(row = 6, column = 0)
+    label167 = tk.Label(frame15, text =bin1["0.075"], relief ="groove",width=6)
+    label167.grid(row = 6, column = 1)
+    label168 = tk.Label(frame15, text =bin1d["0.075"], relief ="groove",width=6)
+    label168.grid(row = 6, column = 2)
+    label169 = tk.Label(frame15, text =bin1s["0.075"], relief ="groove",width=6)
+    label169.grid(row = 6, column = 3)
+    #frame15の場所を指定する。
+    frame15.place(x=3,y=312)
+
+    return bin1d, bin1s
+
+
+
+def bin2fun(root, ttk, tk, bin2):
+    
+    bin2d = {
+        '13.2': round(float(bin2['13.2'])*100/float(bin2['total']),1),
+        '4.75': round(float(bin2['4.75'])*100/float(bin2['total']),1),
+        '2.36': round(float(bin2['2.36'])*100/float(bin2['total']),1),
+        '0.60': round(float(bin2['0.60'])*100/float(bin2['total']),1)
+    }
+    bin2s = {
+        '13.2': round(100-float(bin2['13.2'])*100/float(bin2['total']),1),
+        '4.75': round(100-float(bin2['4.75'])*100/float(bin2['total']),1),
+        '2.36': round(100-float(bin2['2.36'])*100/float(bin2['total']),1),
+        '0.60': round(100-float(bin2['0.60'])*100/float(bin2['total']),1)
+    }
+
+    #frame10を定義してbin2fun関数を出力した。
+    frame10 = ttk.Frame(root)
+    label112 = tk.Label(frame10, text ="2BIN", relief ="groove",width=27)
+    label112.grid(row = 0, column = 0)
+    frame10.place(x=630,y=80)
+    #frame11を定義する。
+    frame11 = ttk.Frame(root)
+    #frame11の中にラベルを作る。
+    label113 = tk.Label(frame11, text ="試料重量", relief ="groove",width=13)
+    label113.grid(row = 0, column = 0)
+    label114 = tk.Label(frame11, text =bin2["total"], relief ="groove",width=13)
+    label114.grid(row = 0, column = 1)
+    #frame11の場所を指定する。
+    frame11.place(x=631,y=101)
+    #frame12を定義する。
+    frame12 = ttk.Frame(root)
+    #frame12の中にラベルを作る。
+    label115 = tk.Label(frame12, text =" ", relief ="groove",width=6)
+    label115.grid(row = 0, column = 0)
+    label116 = tk.Label(frame12, text ="重量", relief ="groove",width=6)
+    label116.grid(row = 0, column = 1)
+    label117 = tk.Label(frame12, text ="残量", relief ="groove",width=6)
+    label117.grid(row = 0, column = 2)
+    label118 = tk.Label(frame12, text ="通過", relief ="groove",width=6)
+    label118.grid(row = 0, column = 3)
+    label119 = tk.Label(frame12, text =bin2["13.2"], relief ="groove",width=6)
+    label119.grid(row = 1, column = 0)
+    label120 = tk.Label(frame12, text =bin2["13.2"], relief ="groove",width=6)
+    label120.grid(row = 1, column = 1)
+    label121 = tk.Label(frame12, text =bin2d["13.2"], relief ="groove",width=6)
+    label121.grid(row = 1, column = 2)
+    label122 = tk.Label(frame12, text =bin2s["13.2"], relief ="groove",width=6)
+    label122.grid(row = 1, column = 3)
+    label123 = tk.Label(frame12, text =bin2["4.75"], relief ="groove",width=6)
+    label123.grid(row = 2, column = 0)
+    label124 = tk.Label(frame12, text =bin2["4.75"], relief ="groove",width=6)
+    label124.grid(row = 2, column = 1)
+    label125 = tk.Label(frame12, text =bin2d["4.75"], relief ="groove",width=6)
+    label125.grid(row = 2, column = 2)
+    label126 = tk.Label(frame12, text =bin2s["4.75"], relief ="groove",width=6)
+    label126.grid(row = 2, column = 3)
+    label127 = tk.Label(frame12, text ="2.36", relief ="groove",width=6)
+    label127.grid(row = 3, column = 0)
+    label128 = tk.Label(frame12, text =bin2["2.36"], relief ="groove",width=6)
+    label128.grid(row = 3, column = 1)
+    label129 = tk.Label(frame12, text =bin2d["2.36"], relief ="groove",width=6)
+    label129.grid(row = 3, column = 2)
+    label130 = tk.Label(frame12, text =bin2s["2.36"], relief ="groove",width=6)
+    label130.grid(row = 3, column = 3)
+    label131 = tk.Label(frame12, text ="0.60", relief ="groove",width=6)
+    label131.grid(row = 4, column = 0)
+    label132 = tk.Label(frame12, text =bin2["0.60"], relief ="groove",width=6)
+    label132.grid(row = 4, column = 1)
+    label133 = tk.Label(frame12, text =bin2d["0.60"], relief ="groove",width=6)
+    label133.grid(row = 4, column = 2)
+    label134 = tk.Label(frame12, text =bin2s["0.60"], relief ="groove",width=6)
+    label134.grid(row = 4, column = 3)
+    label135 = tk.Label(frame12, text =" ", relief ="groove",width=6)
+    label135.grid(row = 5, column = 0)
+    label136 = tk.Label(frame12, text =" ", relief ="groove",width=6)
+    label136.grid(row = 5, column = 1)
+    label137 = tk.Label(frame12, text =" ", relief ="groove",width=6)
+    label137.grid(row = 5, column = 2)
+    label138 = tk.Label(frame12, text =" ", relief ="groove",width=6)
+    label138.grid(row = 5, column = 3)
+    #frame3の場所を指定する。
+    frame12.place(x=632,y=122)
+
+    return bin2d, bin2s
+
+
+def bin3fun(root, ttk, tk, bin3):
+    
+    bin3d = {
+        '19.0': round(float(bin3['19.0'])*100/float(bin3['total']),1),
+        '13.2': round(float(bin3['13.2'])*100/float(bin3['total']),1),
+        '4.75': round(float(bin3['4.75'])*100/float(bin3['total']),1),
+        '2.36': round(float(bin3['2.36'])*100/float(bin3['total']),1)
+    }
+    bin3s = {
+        '19.0': round(100-float(bin3['19.0'])*100/float(bin3['total']),1),
+        '13.2': round(100-float(bin3['13.2'])*100/float(bin3['total']),1),
+        '4.75': round(100-float(bin3['4.75'])*100/float(bin3['total']),1),
+        '2.36': round(100-float(bin3['2.36'])*100/float(bin3['total']),1)
+    }
+
+    #frame7を定義してbin3fun関数を出力した。
+    frame7 = ttk.Frame(root)
+    label58 = tk.Label(frame7, text ="3BIN", relief ="groove",width=27)
+    label58.grid(row = 0, column = 0)
+    frame7.place(x=420,y=80)
+    #frame8を定義する。
+    frame8 = ttk.Frame(root)
+    #frame8の中にラベルを作る。
+    label59 = tk.Label(frame8, text ="試料重量", relief ="groove",width=13)
+    label59.grid(row = 0, column = 0)
+    label60 = tk.Label(frame8, text =bin3["total"], relief ="groove",width=13)
+    label60.grid(row = 0, column = 1)
+    #frame8の場所を指定する。
+    frame8.place(x=421,y=101)
+    #frame9を定義する。
+    frame9 = ttk.Frame(root)
+    #frame9の中にラベルを作る。
+    label61 = tk.Label(frame9, text =" ", relief ="groove",width=6)
+    label61.grid(row = 0, column = 0)
+    label62 = tk.Label(frame9, text ="重量", relief ="groove",width=6)
+    label62.grid(row = 0, column = 1)
+    label63 = tk.Label(frame9, text ="残量", relief ="groove",width=6)
+    label63.grid(row = 0, column = 2)
+    label64 = tk.Label(frame9, text ="通過", relief ="groove",width=6)
+    label64.grid(row = 0, column = 3)
+    label65 = tk.Label(frame9, text ='19.0', relief ="groove",width=6)
+    label65.grid(row = 1, column = 0)
+    label66 = tk.Label(frame9, text =bin3["19.0"], relief ="groove",width=6)
+    label66.grid(row = 1, column = 1)
+    label67 = tk.Label(frame9, text =bin3d["19.0"], relief ="groove",width=6)
+    label67.grid(row = 1, column = 2)
+    label68 = tk.Label(frame9, text =bin3s["19.0"], relief ="groove",width=6)
+    label68.grid(row = 1, column = 3)
+    label69 = tk.Label(frame9, text ="13.2", relief ="groove",width=6)
+    label69.grid(row = 2, column = 0)
+    label70 = tk.Label(frame9, text =bin3["13.2"], relief ="groove",width=6)
+    label70.grid(row = 2, column = 1)
+    label71 = tk.Label(frame9, text =bin3d["13.2"], relief ="groove",width=6)
+    label71.grid(row = 2, column = 2)
+    label72 = tk.Label(frame9, text =bin3s["13.2"], relief ="groove",width=6)
+    label72.grid(row = 2, column = 3)
+    label73 = tk.Label(frame9, text ="4.75", relief ="groove",width=6)
+    label73.grid(row = 3, column = 0)
+    label74 = tk.Label(frame9, text =bin3["4.75"], relief ="groove",width=6)
+    label74.grid(row = 3, column = 1)
+    label75 = tk.Label(frame9, text =bin3d["4.75"], relief ="groove",width=6)
+    label75.grid(row = 3, column = 2)
+    label76 = tk.Label(frame9, text =bin3s["4.75"], relief ="groove",width=6)
+    label76.grid(row = 3, column = 3)
+    label77 = tk.Label(frame9, text ="2.36", relief ="groove",width=6)
+    label77.grid(row = 4, column = 0)
+    label78 = tk.Label(frame9, text =bin3["2.36"], relief ="groove",width=6)
+    label78.grid(row = 4, column = 1)
+    label79 = tk.Label(frame9, text =bin3d["2.36"], relief ="groove",width=6)
+    label79.grid(row = 4, column = 2)
+    label80 = tk.Label(frame9, text =bin3s["2.36"], relief ="groove",width=6)
+    label80.grid(row = 4, column = 3)
+    label81 = tk.Label(frame9, text =" ", relief ="groove",width=6)
+    label81.grid(row = 5, column = 0)
+    label82 = tk.Label(frame9, text =" ", relief ="groove",width=6)
+    label82.grid(row = 5, column = 1)
+    label83 = tk.Label(frame9, text =" ", relief ="groove",width=6)
+    label83.grid(row = 5, column = 2)
+    label84 = tk.Label(frame9, text =" ", relief ="groove",width=6)
+    label84.grid(row = 5, column = 3)
+    #frame3の場所を指定する。
+    frame9.place(x=422,y=122)
+
+    return bin3d, bin3s
+
+
+def bin4fun(root, ttk, tk, bin4):
+    b4t = bin4['total']
+    if b4t == '0':
+        bin4d={
+            '26.5': 0.0,
+            '19.0': 0.0,
+            '13.2': 0.0,
+            '4.75': 0.0,
+        }
+        bin4s = {
+            '26.5': 0.0,
+            '19.0': 0.0,
+            '13.2': 0.0,
+            '4.75': 0.0,
+        }
+    else:
+        bin4d = {
+            '26.5': round(float(bin4['26.5'])*100/float(bin4['total']),1),
+            '19.0': round(float(bin4['19.0'])*100/float(bin4['total']),1),
+            '13.2': round(float(bin4['13.2'])*100/float(bin4['total']),1),
+            '4.75': round(float(bin4['4.75'])*100/float(bin4['total']),1),
+        }
+        bin4s = {
+            '2.36': round(100-float(bin4['26.5'])*100/float(bin4['total']),1),
+            '19.0': round(100-float(bin4['19.0'])*100/float(bin4['total']),1),
+            '13.2': round(100-float(bin4['13.2'])*100/float(bin4['total']),1),
+            '4.75': round(100-float(bin4['4.75'])*100/float(bin4['total']),1),
+        }
+
+
+    '''
+    引数だと「" "」などの空欄を反映できないので「bin5d」「bin5s」「bin4d」「bin4s」にはif文を付けて置いた。
+    '''
+
+    #frame4を定義してbin4fun関数を出力した。
+    frame4 = ttk.Frame(root)
+    label31 = tk.Label(frame4, text ="4BIN", relief ="groove",width=27)
+    label31.grid(row = 0, column = 0)
+    frame4.place(x=210,y=80)
+    #frame5を定義する。
+    frame5 = ttk.Frame(root)
+    #frame5の中にラベルとテキストボックスを作る。
+    label32 = tk.Label(frame5, text ="試料重量", relief ="groove",width=13)
+    label32.grid(row = 0, column = 0)
+    label33 = tk.Label(frame5, relief ="groove",width=13)
+    label33.grid(row = 0, column = 1)
+    #frame5の場所を指定する。
+    frame5.place(x=211,y=101)
+    #frame6を定義する。
+    frame6 = ttk.Frame(root)
+    #frame6の中にラベルを作る。
+    label34 = tk.Label(frame6, text =" ", relief ="groove",width=6)
+    label34.grid(row = 0, column = 0)
+    label35 = tk.Label(frame6, text ="重量", relief ="groove",width=6)
+    label35.grid(row = 0, column = 1)
+    label36 = tk.Label(frame6, text ="残量", relief ="groove",width=6)
+    label36.grid(row = 0, column = 2)
+    label37 = tk.Label(frame6, text ="通過", relief ="groove",width=6)
+    label37.grid(row = 0, column = 3)
+    label38 = tk.Label(frame6, text ="26.5", relief ="groove",width=6)
+    label38.grid(row = 1, column = 0)
+    label39 = tk.Label(frame6, text =bin4["26.5"], relief ="groove",width=6)
+    label39.grid(row = 1, column = 1)
+    label40 = tk.Label(frame6, text =" ", relief ="groove",width=6)
+    label40.grid(row = 1, column = 2)
+    label41 = tk.Label(frame6, text =" ", relief ="groove",width=6)
+    label41.grid(row = 1, column = 3)
+    label42 = tk.Label(frame6, text ="19.0", relief ="groove",width=6)
+    label42.grid(row = 2, column = 0)
+    label43 = tk.Label(frame6, text =bin4["19.0"], relief ="groove",width=6)
+    label43.grid(row = 2, column = 1)
+    label44 = tk.Label(frame6, text =" ", relief ="groove",width=6)
+    label44.grid(row = 2, column = 2)
+    label45 = tk.Label(frame6, text =" ", relief ="groove",width=6)
+    label45.grid(row = 2, column = 3)
+    label46 = tk.Label(frame6, text ="13.2", relief ="groove",width=6)
+    label46.grid(row = 3, column = 0)
+    label47 = tk.Label(frame6, text =bin4["13.2"], relief ="groove",width=6)
+    label47.grid(row = 3, column = 1)
+    label48 = tk.Label(frame6, text =" ", relief ="groove",width=6)
+    label48.grid(row = 3, column = 2)
+    label49 = tk.Label(frame6, text =" ", relief ="groove",width=6)
+    label49.grid(row = 3, column = 3)
+    label50 = tk.Label(frame6, text ="4.75", relief ="groove",width=6)
+    label50.grid(row = 4, column = 0)
+    label51 = tk.Label(frame6, text =bin4["4.75"], relief ="groove",width=6)
+    label51.grid(row = 4, column = 1)
+    label52 = tk.Label(frame6, text =" ", relief ="groove",width=6)
+    label52.grid(row = 4, column = 2)
+    label53 = tk.Label(frame6, text =" ", relief ="groove",width=6)
+    label53.grid(row = 4, column = 3)
+    label54 = tk.Label(frame6, text =" ", relief ="groove",width=6)
+    label54.grid(row = 5, column = 0)
+    label55 = tk.Label(frame6, text =" ", relief ="groove",width=6)
+    label55.grid(row = 5, column = 1)
+    label56 = tk.Label(frame6, text =" ", relief ="groove",width=6)
+    label56.grid(row = 5, column = 2)
+    label57 = tk.Label(frame6, text =" ", relief ="groove",width=6)
+    label57.grid(row = 5, column = 3)
+    #frame6の場所を指定する。
+    frame6.place(x=212,y=122)
+
+    return bin4d, bin4s
+
+
+
+def bin5fun(root, ttk, tk, bin5):  
+    b5t = bin5['total']
+    if b5t == '0':
+        bin5d={
+            '26.5': 0.0,
+            '19.0': 0.0,
+            '13.2': 0.0,
+            '4.75': 0.0,
+        }
+        bin5s = {
+            '26.5': 0.0,
+            '19.0': 0.0,
+            '13.2': 0.0,
+            '4.75': 0.0,
+        }
+    else:
+        bin5d = {
+            '53.0': round(float(bin5['53.0'])*100/float(bin5['total']),1),
+            '39.0': round(float(bin5['39.0'])*100/float(bin5['total']),1),
+            '26.5': round(float(bin5['26.5'])*100/float(bin5['total']),1),
+            '19.0': round(float(bin5['19.0'])*100/float(bin5['total']),1),
+            '13.2': round(float(bin5['13.2'])*100/float(bin5['total']),1)
+        }
+        bin5s = {
+            '53.0': round(100-float(bin5['53.0'])*100/float(bin5['total']),1),
+            '39.0': round(100-float(bin5['39.0'])*100/float(bin5['total']),1),
+            '26.5': round(100-float(bin5['26.5'])*100/float(bin5['total']),1),
+            '19.0': round(100-float(bin5['19.0'])*100/float(bin5['total']),1),
+            '13.2': round(100-float(bin5['13.2'])*100/float(bin5['total']),1)
+        }
+
+
+    #frame1を定義してbin5fun関数を出力した。
+    frame1 = ttk.Frame(root)
+    label4 = tk.Label(frame1, text ="5BIN", relief ="groove",width=27)
+    label4.grid(row = 0, column = 0)
+    frame1.place(x=1,y=80)
+    #frame2を定義する。
+    frame2 = ttk.Frame(root)
+    #frame2の中にラベルを作る。
+    label5 = tk.Label(frame2, text ="試料重量", relief ="groove",width=13)
+    label5.grid(row = 0, column = 0)
+    label6 = tk.Label(frame2, text ="0", relief ="groove",width=13)
+    label6.grid(row = 0, column = 1)  
+    #frame2の場所を指定する。
+    frame2.place(x=2,y=101)
+
+    #frame3を定義する。
+    frame3 = ttk.Frame(root)
+    #frame3の中にラベルを作る。
+    label7 = tk.Label(frame3, text =" ", relief ="groove",width=6)
+    label7.grid(row = 0, column = 0)
+    label8 = tk.Label(frame3, text ="重量", relief ="groove",width=6)
+    label8.grid(row = 0, column = 1)
+    label9 = tk.Label(frame3, text ="残量", relief ="groove",width=6)
+    label9.grid(row = 0, column = 2)
+    label10 = tk.Label(frame3, text ="通過", relief ="groove",width=6)
+    label10.grid(row = 0, column = 3)
+    label11 = tk.Label(frame3, text ="53.0", relief ="groove",width=6)
+    label11.grid(row = 1, column = 0)
+    label12 = tk.Label(frame3, text =bin5["53.0"], relief ="groove",width=6)
+    label12.grid(row = 1, column = 1)
+    label13 = tk.Label(frame3, text =" ", relief ="groove",width=6)
+    label13.grid(row = 1, column = 2)
+    label14 = tk.Label(frame3, text =" ", relief ="groove",width=6)
+    label14.grid(row = 1, column = 3)
+    label15 = tk.Label(frame3, text ="39.0", relief ="groove",width=6)
+    label15.grid(row = 2, column = 0)
+    label16 = tk.Label(frame3, text =bin5["39.0"], relief ="groove",width=6)
+    label16.grid(row = 2, column = 1)
+    label17 = tk.Label(frame3, text =" ", relief ="groove",width=6)
+    label17.grid(row = 2, column = 2)
+    label18 = tk.Label(frame3, text =" ", relief ="groove",width=6)
+    label18.grid(row = 2, column = 3)
+    label19 = tk.Label(frame3, text ="26.5", relief ="groove",width=6)
+    label19.grid(row = 3, column = 0)
+    label20 = tk.Label(frame3, text =bin5["26.5"], relief ="groove",width=6)
+    label20.grid(row = 3, column = 1)
+    label21 = tk.Label(frame3, text =" ", relief ="groove",width=6)
+    label21.grid(row = 3, column = 2)
+    label22 = tk.Label(frame3, text =" ", relief ="groove",width=6)
+    label22.grid(row = 3, column = 3)
+    label23 = tk.Label(frame3, text ="19.0", relief ="groove",width=6)
+    label23.grid(row = 4, column = 0)
+    label24 = tk.Label(frame3, text =bin5["19.0"], relief ="groove",width=6)
+    label24.grid(row = 4, column = 1)
+    label25 = tk.Label(frame3, text =" ", relief ="groove",width=6)
+    label25.grid(row = 4, column = 2)
+    label26 = tk.Label(frame3, text =" ", relief ="groove",width=6)
+    label26.grid(row = 4, column = 3)
+    label27 = tk.Label(frame3, text ="13.2", relief ="groove",width=6)
+    label27.grid(row = 5, column = 0)
+    label28 = tk.Label(frame3, text =bin5["13.2"], relief ="groove",width=6)
+    label28.grid(row = 5, column = 1)
+    label29 = tk.Label(frame3, text =" ", relief ="groove",width=6)
+    label29.grid(row = 5, column = 2)
+    label30 = tk.Label(frame3, text =" ", relief ="groove",width=6)
+    label30.grid(row = 5, column = 3)
+    #frame3の場所を指定する。
+    frame3.place(x=3,y=122)
+
+    return bin5d, bin5s
+
+
+
+def ishikofun(root, ttk, tk, ishiko):
+    #ishiko(石粉)sum(合計)に引数を入れる。
+    ishikosum = {
+        '合計': round(float(ishiko['特殊'])+float(ishiko['6号'])+float(ishiko['7号'])+float(ishiko['砕砂'])
+                    +float(ishiko['細砂'])+float(ishiko['5号'])+float(ishiko['4号'])+float(ishiko['4.75'])
+                    +float(ishiko['2.36'])+float(ishiko['0.60'])+float(ishiko['0.30'])+float(ishiko['0.15'])
+                    +float(ishiko['0.075']))}
+    #frame17を定義する。
+    frame17 = ttk.Frame(root)
+    #frame17の中にラベルを作る。
+    label261 = tk.Label(frame17, text ="特殊", relief ="groove",width=6)
+    label261.grid(row = 0, column = 0)
+    label262 = tk.Label(frame17, text =ishiko["特殊"], relief ="groove",width=6)
+    label262.grid(row = 0, column = 1)
+    label263 = tk.Label(frame17, text ="石粉", relief ="groove",width=13)
+    label263.grid(row = 0, column = 2)
+    #frame17の場所を指定する。
+    frame17.place(x=1,y=480)
+    #frame18を定義する。
+    frame18 = ttk.Frame(root)
+    #frame14の中にラベルを作る。
+    label264 = tk.Label(frame18, text ="6号", relief ="groove",width=6)
+    label264.grid(row = 0, column = 0)
+    label265 = tk.Label(frame18, text =ishiko["6号"], relief ="groove",width=6)
+    label265.grid(row = 0, column = 1)
+    label266 = tk.Label(frame18, text ="残留", relief ="groove",width=6)
+    label266.grid(row = 0, column = 2)
+    label267 = tk.Label(frame18, text ="通過", relief ="groove",width=6)
+    label267.grid(row = 0, column = 3)
+    label268 = tk.Label(frame18, text ="7号", relief ="groove",width=6)
+    label268.grid(row = 1, column = 0)
+    label269 = tk.Label(frame18, text =ishiko["7号"], relief ="groove",width=6)
+    label269.grid(row = 1, column = 1)
+    label270 = tk.Label(frame18, text ="4.75", relief ="groove",width=6)
+    label270.grid(row = 1, column = 2)
+    label271 = tk.Label(frame18, text =ishiko["4.75"], relief ="groove",width=6)
+    label271.grid(row = 1, column = 3)
+    label272 = tk.Label(frame18, text ="砕砂", relief ="groove",width=6)
+    label272.grid(row = 2, column = 0)
+    label273 = tk.Label(frame18, text =ishiko["砕砂"], relief ="groove",width=6)
+    label273.grid(row = 2, column = 1)
+    label274 = tk.Label(frame18, text ="2.36", relief ="groove",width=6)
+    label274.grid(row = 2, column = 2)
+    label275 = tk.Label(frame18, text =ishiko["2.36"], relief ="groove",width=6)
+    label275.grid(row = 2, column = 3)
+    label276 = tk.Label(frame18, text ="粗砂", relief ="groove",width=6)
+    label276.grid(row = 3, column = 0)
+    label277 = tk.Label(frame18, text =ishiko["粗砂"], relief ="groove",width=6)
+    label277.grid(row = 3, column = 1)
+    label278 = tk.Label(frame18, text ="0.60", relief ="groove",width=6)
+    label278.grid(row = 3, column = 2)
+    label279 = tk.Label(frame18, text =ishiko["0.60"], relief ="groove",width=6)
+    label279.grid(row = 3, column = 3)
+    label280 = tk.Label(frame18, text ="細砂", relief ="groove",width=6)
+    label280.grid(row = 4, column = 0)
+    label281 = tk.Label(frame18, text =ishiko["細砂"], relief ="groove",width=6)
+    label281.grid(row = 4, column = 1)
+    label282 = tk.Label(frame18, text ="0.30", relief ="groove",width=6)
+    label282.grid(row = 4, column = 2)
+    label283 = tk.Label(frame18, text =ishiko["0.30"], relief ="groove",width=6)
+    label283.grid(row = 4, column = 3)
+    label284 = tk.Label(frame18, text ="5号", relief ="groove",width=6)
+    label284.grid(row = 5, column = 0)
+    label285 = tk.Label(frame18, text =ishiko["5号"], relief ="groove",width=6)
+    label285.grid(row = 5, column = 1)
+    label286 = tk.Label(frame18, text ="0.15", relief ="groove",width=6)
+    label286.grid(row = 5, column = 2)
+    label287 = tk.Label(frame18, text =ishiko["0.15"], relief ="groove",width=6)
+    label287.grid(row = 5, column = 3)
+    label288 = tk.Label(frame18, text ="4号", relief ="groove",width=6)
+    label288.grid(row = 6, column = 0)
+    label289 = tk.Label(frame18, text =ishiko["4号"], relief ="groove",width=6)
+    label289.grid(row = 6, column = 1)
+    label290 = tk.Label(frame18, text ="0.075", relief ="groove",width=6)
+    label290.grid(row = 6, column = 2)
+    label291 = tk.Label(frame18, text =ishiko["0.075"], relief ="groove",width=6)
+    label291.grid(row = 6, column = 3)
+    #frame18の場所を指定する。
+    frame18.place(x=2,y=501)
+    #frame19を定義する。
+    frame19 = ttk.Frame(root)
+    #frame19の中にラベルを作る。
+    label292 = tk.Label(frame19, text ="合計", relief ="groove",width=6)
+    label292.grid(row = 0, column = 0)
+    label293 = tk.Label(frame19, text =ishikosum["合計"], relief ="groove",width=6)
+    label293.grid(row = 0, column = 1)
+    #frame19の場所を指定する。
+    frame19.place(x=2,y=648)
+
+def allmaterial(root,ttk,tk,bin1s,bin2s,bin3s,bin4s,bin5s,ishiko):
+
+    #frame16を定義する。
+    frame16 = ttk.Frame(root)
+    #frame16の中のラベルを作る。
+    label170 = tk.Label(frame16, text =" ", relief ="groove",width=10)
+    label170.grid(row = 0, column = 0)
+    label171 = tk.Label(frame16, text =" ", relief ="groove",width=5)
+    label171.grid(row = 0, column = 1)
+    label172 = tk.Label(frame16, text ="53.0", relief ="groove",width=5)
+    label172.grid(row = 0, column = 2)
+    label173 = tk.Label(frame16, text ="37.5", relief ="groove",width=5)
+    label173.grid(row = 0, column = 3)
+    label174 = tk.Label(frame16, text ="26.5", relief ="groove",width=5)
+    label174.grid(row = 0, column = 4)
+    label175 = tk.Label(frame16, text ="19.0", relief ="groove",width=5)
+    label175.grid(row = 0, column = 5)
+    label176 = tk.Label(frame16, text ="13.2", relief ="groove",width=5)
+    label176.grid(row = 0, column = 6)
+    label177 = tk.Label(frame16, text ="4.75", relief ="groove",width=5)
+    label177.grid(row = 0, column = 7)
+    label178 = tk.Label(frame16, text ="2.36", relief ="groove",width=5)
+    label178.grid(row = 0, column = 8)
+    label179 = tk.Label(frame16, text ="0.60", relief ="groove",width=5)
+    label179.grid(row = 0, column = 9)
+    label180 = tk.Label(frame16, text ="0.30", relief ="groove",width=5)
+    label180.grid(row = 0, column = 10)
+    label181 = tk.Label(frame16, text ="0.15", relief ="groove",width=5)
+    label181.grid(row = 0, column = 11)
+    label182 = tk.Label(frame16, text ="0.075", relief ="groove",width=5)
+    label182.grid(row = 0, column = 12)
+    label183 = tk.Label(frame16, text ="5BIN", relief ="groove",width=10)
+    label183.grid(row = 1, column = 0)
+    label184 = tk.Label(frame16, text =" ", relief ="groove",width=5)
+    label184.grid(row = 1, column = 1)
+    label185 = tk.Label(frame16, text ="0.0", relief ="groove",width=5)
+    label185.grid(row = 1, column = 2)
+    label186 = tk.Label(frame16, text ="0.0", relief ="groove",width=5)
+    label186.grid(row = 1, column = 3)
+    label187 = tk.Label(frame16, text ="0.0", relief ="groove",width=5)
+    label187.grid(row = 1, column = 4)
+    label188 = tk.Label(frame16, text ="0.0", relief ="groove",width=5)
+    label188.grid(row = 1, column = 5)
+    label189 = tk.Label(frame16, text ="0.0", relief ="groove",width=5)
+    label189.grid(row = 1, column = 6)
+    label190 = tk.Label(frame16, text =" ", relief ="groove",width=5)
+    label190.grid(row = 1, column = 7)
+    label191 = tk.Label(frame16, text =" ", relief ="groove",width=5)
+    label191.grid(row = 1, column = 8)
+    label192 = tk.Label(frame16, text =" ", relief ="groove",width=5)
+    label192.grid(row = 1, column = 9)
+    label193 = tk.Label(frame16, text =" ", relief ="groove",width=5)
+    label193.grid(row = 1, column = 10)
+    label194 = tk.Label(frame16, text =" ", relief ="groove",width=5)
+    label194.grid(row = 1, column = 11)
+    label195 = tk.Label(frame16, text =" ", relief ="groove",width=5)
+    label195.grid(row = 1, column = 12)
+    label196 = tk.Label(frame16, text ="4BIN", relief ="groove",width=10)
+    label196.grid(row = 2, column = 0)
+    label197 = tk.Label(frame16, text =" ", relief ="groove",width=5)
+    label197.grid(row = 2, column = 1)
+    label198 = tk.Label(frame16, text =" ", relief ="groove",width=5)
+    label198.grid(row = 2, column = 2)
+    label199 = tk.Label(frame16, text =" ", relief ="groove",width=5)
+    label199.grid(row = 2, column = 3)
+    label200 = tk.Label(frame16, text =" ", relief ="groove",width=5)
+    label200.grid(row = 2, column = 4)
+    label201 = tk.Label(frame16, text =" ", relief ="groove",width=5)
+    label201.grid(row = 2, column = 5)
+    label202 = tk.Label(frame16, text =" ", relief ="groove",width=5)
+    label202.grid(row = 2, column = 6)
+    label203 = tk.Label(frame16, text =" ", relief ="groove",width=5)
+    label203.grid(row = 2, column = 7)
+    label204 = tk.Label(frame16, text =" ", relief ="groove",width=5)
+    label204.grid(row = 2, column = 8)
+    label205 = tk.Label(frame16, text =" ", relief ="groove",width=5)
+    label205.grid(row = 2, column = 9)
+    label206 = tk.Label(frame16, text =" ", relief ="groove",width=5)
+    label206.grid(row = 2, column = 10)
+    label207 = tk.Label(frame16, text =" ", relief ="groove",width=5)
+    label207.grid(row = 2, column = 11)
+    label208 = tk.Label(frame16, text =" ", relief ="groove",width=5)
+    label208.grid(row = 2, column = 12)
+    label209 = tk.Label(frame16, text ="3BIN", relief ="groove",width=10)
+    label209.grid(row = 3, column = 0)
+    label210 = tk.Label(frame16, text =" ", relief ="groove",width=5)
+    label210.grid(row = 3, column = 1)
+    label211 = tk.Label(frame16, text ="100.0", relief ="groove",width=5)
+    label211.grid(row = 3, column = 2)
+    label212 = tk.Label(frame16, text ="100.0", relief ="groove",width=5)
+    label212.grid(row = 3, column = 3)
+    label213 = tk.Label(frame16, text ="100.0", relief ="groove",width=5)
+    label213.grid(row = 3, column = 4)
+    label214 = tk.Label(frame16, text =bin3s["19.0"], relief ="groove",width=5)
+    label214.grid(row = 3, column = 5)
+    label215 = tk.Label(frame16, text =bin3s["13.2"], relief ="groove",width=5)
+    label215.grid(row = 3, column = 6)
+    label216 = tk.Label(frame16, text =bin3s["4.75"], relief ="groove",width=5)
+    label216.grid(row = 3, column = 7)
+    label217 = tk.Label(frame16, text =bin3s["2.36"], relief ="groove",width=5)
+    label217.grid(row = 3, column = 8)
+    label218 = tk.Label(frame16, text =" ", relief ="groove",width=5)
+    label218.grid(row = 3, column = 9)
+    label219 = tk.Label(frame16, text =" ", relief ="groove",width=5)
+    label219.grid(row = 3, column = 10)
+    label220 = tk.Label(frame16, text =" ", relief ="groove",width=5)
+    label220.grid(row = 3, column = 11)
+    label221 = tk.Label(frame16, text =" ", relief ="groove",width=5)
+    label221.grid(row = 3, column = 12)
+    label222 = tk.Label(frame16, text ="2BIN", relief ="groove",width=10)
+    label222.grid(row = 4, column = 0)
+    label223 = tk.Label(frame16, text =" ", relief ="groove",width=5)
+    label223.grid(row = 4, column = 1)
+    label224 = tk.Label(frame16, text ="100.0", relief ="groove",width=5)
+    label224.grid(row = 4, column = 2)
+    label225 = tk.Label(frame16, text ="100.0", relief ="groove",width=5)
+    label225.grid(row = 4, column = 3)
+    label226 = tk.Label(frame16, text ="100.0", relief ="groove",width=5)
+    label226.grid(row = 4, column = 4)
+    label227 = tk.Label(frame16, text ="100.0", relief ="groove",width=5)
+    label227.grid(row = 4, column = 5)
+    label228 = tk.Label(frame16, text ="100.0", relief ="groove",width=5)
+    label228.grid(row = 4, column = 6)
+    label229 = tk.Label(frame16, text =bin2s["4.75"], relief ="groove",width=5)
+    label229.grid(row = 4, column = 7)
+    label230 = tk.Label(frame16, text =bin2s["2.36"], relief ="groove",width=5)
+    label230.grid(row = 4, column = 8)
+    label231 = tk.Label(frame16, text =bin2s["0.60"], relief ="groove",width=5)
+    label231.grid(row = 4, column = 9)
+    label232 = tk.Label(frame16, text =" ", relief ="groove",width=5)
+    label232.grid(row = 4, column = 10)
+    label233 = tk.Label(frame16, text =" ", relief ="groove",width=5)
+    label233.grid(row = 4, column = 11)
+    label234 = tk.Label(frame16, text =" ", relief ="groove",width=5)
+    label234.grid(row = 4, column = 12)
+    label235 = tk.Label(frame16, text ="1BIN", relief ="groove",width=10)
+    label235.grid(row = 5, column = 0)
+    label236 = tk.Label(frame16, text =" ", relief ="groove",width=5)
+    label236.grid(row = 5, column = 1)
+    label237 = tk.Label(frame16, text ="100.0", relief ="groove",width=5)
+    label237.grid(row = 5, column = 2)
+    label238 = tk.Label(frame16, text ="100.0", relief ="groove",width=5)
+    label238.grid(row = 5, column = 3)
+    label239 = tk.Label(frame16, text ="100.0", relief ="groove",width=5)
+    label239.grid(row = 5, column = 4)
+    label240 = tk.Label(frame16, text ="100.0", relief ="groove",width=5)
+    label240.grid(row = 5, column = 5)
+    label241 = tk.Label(frame16, text ="100.0", relief ="groove",width=5)
+    label241.grid(row = 5, column = 6)
+    label242 = tk.Label(frame16, text ="100.0", relief ="groove",width=5)
+    label242.grid(row = 5, column = 7)
+    label243 = tk.Label(frame16, text =bin1s["2.36"], relief ="groove",width=5)
+    label243.grid(row = 5, column = 8)
+    label244 = tk.Label(frame16, text =bin1s["0.60"], relief ="groove",width=5)
+    label244.grid(row = 5, column = 9)
+    label245 = tk.Label(frame16, text =bin1s["0.30"], relief ="groove",width=5)
+    label245.grid(row = 5, column = 10)
+    label246 = tk.Label(frame16, text =bin1s["0.15"], relief ="groove",width=5)
+    label246.grid(row = 5, column = 11)
+    label247 = tk.Label(frame16, text =bin1s["0.075"], relief ="groove",width=5)
+    label247.grid(row = 5, column = 12)
+    label248 = tk.Label(frame16, text ="石粉", relief ="groove",width=10)
+    label248.grid(row = 6, column = 0)
+    label249 = tk.Label(frame16, text =" ", relief ="groove",width=5)
+    label249.grid(row = 6, column = 1)
+    label250 = tk.Label(frame16, text ="100.0", relief ="groove",width=5)
+    label250.grid(row = 6, column = 2)
+    label251 = tk.Label(frame16, text ="100.0", relief ="groove",width=5)
+    label251.grid(row = 6, column = 3)
+    label252 = tk.Label(frame16, text ="100.0", relief ="groove",width=5)
+    label252.grid(row = 6, column = 4)
+    label253 = tk.Label(frame16, text ="100.0", relief ="groove",width=5)
+    label253.grid(row = 6, column = 5)
+    label254 = tk.Label(frame16, text ="100.0", relief ="groove",width=5)
+    label254.grid(row = 6, column = 6)
+    label255 = tk.Label(frame16, text =ishiko["4.75"], relief ="groove",width=5)
+    label255.grid(row = 6, column = 7)
+    label256 = tk.Label(frame16, text =ishiko["2.36"], relief ="groove",width=5)
+    label256.grid(row = 6, column = 8)
+    label257 = tk.Label(frame16, text =ishiko["0.60"], relief ="groove",width=5)
+    label257.grid(row = 6, column = 9)
+    label258 = tk.Label(frame16, text =ishiko["0.30"], relief ="groove",width=5)
+    label258.grid(row = 6, column = 10)
+    label259 = tk.Label(frame16, text =ishiko["0.15"], relief ="groove",width=5)
+    label259.grid(row = 6, column = 11)
+    label260 = tk.Label(frame16, text =ishiko["0.075"], relief ="groove",width=5)
+    label260.grid(row = 6, column = 12)
+    #frame16の場所を指定する。
+    frame16.place(x=250,y=270)
+    '''
+    「bin5d」「bin5s」「bin4d」「bin4s」はエラー回避のため空欄にした。
+    '''
+def synthesis(root,ttk,tk,bin1s,bin2s,bin3s,bin4s,bin5s,ishiko):
+    #synthesis(合成粒度)の計算をする為の引数を入れる。
+
+
+    synthesis = {
+        '5bin':'0.0',
+        '4bin':' ',
+        '3bin':'22.0',
+        '2bin':'33.3',
+        '1bin':'44.4',
+        'ishiko':'5.9',}
+
+
+
+    bin3p = {
+        '13.2': round(float(bin3s["13.2"])*(float(synthesis["3bin"])/100),1),
+        '4.75': round(float(bin3s["4.75"])*(float(synthesis["3bin"])/100),1),
+        '2.36': round(float(bin3s["2.36"])*(float(synthesis["3bin"])/100),1),
+        }
+    bin2p = {
+        '4.75': round(float(bin2s["4.75"])*(float(synthesis["2bin"])/100),1),
+        '2.36': round(float(bin2s["2.36"])*(float(synthesis["2bin"])/100),1),
+        '0.60': round(float(bin2s["0.60"])*(float(synthesis["2bin"])/100),1),
+        }
+    bin1p = {
+        '2.36': round(float(bin1s["2.36"])*(float(synthesis["1bin"])/100),1),
+        '0.60': round(float(bin1s["0.60"])*(float(synthesis["1bin"])/100),1),
+        '0.30': round(float(bin1s["0.30"])*(float(synthesis["1bin"])/100),1),
+        '0.15': round(float(bin1s["0.15"])*(float(synthesis["1bin"])/100),1),
+        '0.075': round(float(bin1s["0.075"])*(float(synthesis["1bin"])/100),1),
+        }
+    ishikop = {
+        '0.15': round(float(ishiko["0.15"])*(float(synthesis["ishiko"])/100),1),
+        '0.075': round(float(ishiko["0.075"])*(float(synthesis["ishiko"])/100),1),
+        }
+    grain = {
+        "13.2": round(float(bin3p["13.2"])+float(synthesis["2bin"])+float(synthesis["1bin"])+float(synthesis["ishiko"]),1),
+        '4.75': round(float(bin3p["4.75"])+float(bin2p["4.75"])+float(synthesis["1bin"])+float(synthesis["ishiko"]),1),
+        '2.36': round(float(bin3p["2.36"])+float(bin2p["2.36"])+float(bin1p["2.36"])+float(synthesis["ishiko"]),1),
+        '0.60': round(float(bin2p["0.60"])+float(bin1p["0.60"])+float(synthesis["ishiko"]),1),
+        '0.30': round(float(bin1p["0.30"])+float(synthesis["ishiko"]),1),
+        '0.15': round(float(bin1p["0.15"])+float(ishikop["0.15"]),1),
+        '0.075':round(float(bin1p["0.075"])+float(ishikop["0.075"]),1),
+        }
+    
+    #frame20を定義する。
+    frame20 = ttk.Frame(root)
+    #frame20の中のラベルを作る。
+    label294 = tk.Label(frame20, text =" ", relief ="groove",width=10)
+    label294.grid(row = 0, column = 0)
+    label295 = tk.Label(frame20, text ="割合", relief ="groove",width=5)
+    label295.grid(row = 0, column = 1)
+    label296 = tk.Label(frame20, text ="53.0", relief ="groove",width=5)
+    label296.grid(row = 0, column = 2)
+    label297 = tk.Label(frame20, text ="37.5", relief ="groove",width=5)
+    label297.grid(row = 0, column = 3)
+    label298 = tk.Label(frame20, text ="26.5", relief ="groove",width=5)
+    label298.grid(row = 0, column = 4)
+    label299 = tk.Label(frame20, text ="19.0", relief ="groove",width=5)
+    label299.grid(row = 0, column = 5)
+    label300 = tk.Label(frame20, text ="13.2", relief ="groove",width=5)
+    label300.grid(row = 0, column = 6)
+    label301 = tk.Label(frame20, text ="4.75", relief ="groove",width=5)
+    label301.grid(row = 0, column = 7)
+    label302 = tk.Label(frame20, text ="2.36", relief ="groove",width=5)
+    label302.grid(row = 0, column = 8)
+    label303 = tk.Label(frame20, text ="0.60", relief ="groove",width=5)
+    label303.grid(row = 0, column = 9)
+    label304 = tk.Label(frame20, text ="0.30", relief ="groove",width=5)
+    label304.grid(row = 0, column = 10)
+    label305 = tk.Label(frame20, text ="0.15", relief ="groove",width=5)
+    label305.grid(row = 0, column = 11)
+    label306 = tk.Label(frame20, text ="0.075", relief ="groove",width=5)
+    label306.grid(row = 0, column = 12)
+    label307 = tk.Label(frame20, text ="5BIN", relief ="groove",width=10)
+    label307.grid(row = 1, column = 0)
+    label308 = tk.Label(frame20, text ="0.0", relief ="groove",width=5)
+    label308.grid(row = 1, column = 1)
+    label309 = tk.Label(frame20, text ="0.0", relief ="groove",width=5)
+    label309.grid(row = 1, column = 2)
+    label310 = tk.Label(frame20, text ="0.0", relief ="groove",width=5)
+    label310.grid(row = 1, column = 3)
+    label311 = tk.Label(frame20, text ="0.0", relief ="groove",width=5)
+    label311.grid(row = 1, column = 4)
+    label312 = tk.Label(frame20, text ="0.0", relief ="groove",width=5)
+    label312.grid(row = 1, column = 5)
+    label313 = tk.Label(frame20, text ="0.0", relief ="groove",width=5)
+    label313.grid(row = 1, column = 6)
+    label314 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label314.grid(row = 1, column = 7)
+    label315 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label315.grid(row = 1, column = 8)
+    label316 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label316.grid(row = 1, column = 9)
+    label317 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label317.grid(row = 1, column = 10)
+    label318 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label318.grid(row = 1, column = 11)
+    label319 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label319.grid(row = 1, column = 12)
+    label320 = tk.Label(frame20, text ="4BIN", relief ="groove",width=10)
+    label320.grid(row = 2, column = 0)
+    label321 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label321.grid(row = 2, column = 1)
+    label322 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label322.grid(row = 2, column = 2)
+    label323 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label323.grid(row = 2, column = 3)
+    label324 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label324.grid(row = 2, column = 4)
+    label325 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label325.grid(row = 2, column = 5)
+    label326 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label326.grid(row = 2, column = 6)
+    label327 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label327.grid(row = 2, column = 7)
+    label328 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label328.grid(row = 2, column = 8)
+    label329 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label329.grid(row = 2, column = 9)
+    label330 = tk.Label(frame20, text ="0.0", relief ="groove",width=5)
+    label330.grid(row = 2, column = 10)
+    label331 = tk.Label(frame20, text ="0.0", relief ="groove",width=5)
+    label331.grid(row = 2, column = 11)
+    label332 = tk.Label(frame20, text ="0.0", relief ="groove",width=5)
+    label332.grid(row = 2, column = 12)
+    label333 = tk.Label(frame20, text ="3BIN", relief ="groove",width=10)
+    label333.grid(row = 3, column = 0)
+    label334 = tk.Label(frame20, text ="28.0", relief ="groove",width=5)
+    label334.grid(row = 3, column = 1)
+    label335 = tk.Label(frame20, text ="28.0", relief ="groove",width=5)
+    label335.grid(row = 3, column = 2)
+    label336 = tk.Label(frame20, text ="28.0", relief ="groove",width=5)
+    label336.grid(row = 3, column = 3)
+    label337 = tk.Label(frame20, text ="28.0", relief ="groove",width=5)
+    label337.grid(row = 3, column = 4)
+    label338 = tk.Label(frame20, text ="28.0", relief ="groove",width=5)
+    label338.grid(row = 3, column = 5)
+    label339 = tk.Label(frame20, text =bin3p["13.2"], relief ="groove",width=5)
+    label339.grid(row = 3, column = 6)
+    label340 = tk.Label(frame20, text =bin3p["4.75"], relief ="groove",width=5)
+    label340.grid(row = 3, column = 7)
+    label341 = tk.Label(frame20, text =bin3p["2.36"], relief ="groove",width=5)
+    label341.grid(row = 3, column = 8)
+    label342 = tk.Label(frame20, text ="0.0", relief ="groove",width=5)
+    label342.grid(row = 3, column = 9)
+    label343 = tk.Label(frame20, text ="0.0", relief ="groove",width=5)
+    label343.grid(row = 3, column = 10)
+    label344 = tk.Label(frame20, text ="0.0", relief ="groove",width=5)
+    label344.grid(row = 3, column = 11)
+    label345 = tk.Label(frame20, text ="0.0", relief ="groove",width=5)
+    label345.grid(row = 3, column = 12)
+    label346 = tk.Label(frame20, text ="2BIN", relief ="groove",width=10)
+    label346.grid(row = 4, column = 0)
+    label347 = tk.Label(frame20, text ="22.7", relief ="groove",width=5)
+    label347.grid(row = 4, column = 1)
+    label348 = tk.Label(frame20, text ="22.7", relief ="groove",width=5)
+    label348.grid(row = 4, column = 2)
+    label349 = tk.Label(frame20, text ="22.7", relief ="groove",width=5)
+    label349.grid(row = 4, column = 3)
+    label350 = tk.Label(frame20, text ="22.7", relief ="groove",width=5)
+    label350.grid(row = 4, column = 4)
+    label351 = tk.Label(frame20, text ="22.7", relief ="groove",width=5)
+    label351.grid(row = 4, column = 5)
+    label352 = tk.Label(frame20, text ="22.7", relief ="groove",width=5)
+    label352.grid(row = 4, column = 6)
+    label353 = tk.Label(frame20, text =bin2p["4.75"], relief ="groove",width=5)
+    label353.grid(row = 4, column = 7)
+    label354 = tk.Label(frame20, text =bin2p["2.36"], relief ="groove",width=5)
+    label354.grid(row = 4, column = 8)
+    label355 = tk.Label(frame20, text =bin2p["0.60"], relief ="groove",width=5)
+    label355.grid(row = 4, column = 9)
+    label356 = tk.Label(frame20, text ="0.0", relief ="groove",width=5)
+    label356.grid(row = 4, column = 10)
+    label357 = tk.Label(frame20, text ="0.0", relief ="groove",width=5)
+    label357.grid(row = 4, column = 11)
+    label358 = tk.Label(frame20, text ="0.0", relief ="groove",width=5)
+    label358.grid(row = 4, column = 12)
+    label359 = tk.Label(frame20, text ="1BIN", relief ="groove",width=10)
+    label359.grid(row = 5, column = 0)
+    label360 = tk.Label(frame20, text ="43.4", relief ="groove",width=5)
+    label360.grid(row = 5, column = 1)
+    label361 = tk.Label(frame20, text ="43.4", relief ="groove",width=5)
+    label361.grid(row = 5, column = 2)
+    label362 = tk.Label(frame20, text ="43.4", relief ="groove",width=5)
+    label362.grid(row = 5, column = 3)
+    label363 = tk.Label(frame20, text ="43.4", relief ="groove",width=5)
+    label363.grid(row = 5, column = 4)
+    label364 = tk.Label(frame20, text ="43.4", relief ="groove",width=5)
+    label364.grid(row = 5, column = 5)
+    label365 = tk.Label(frame20, text ="43.4", relief ="groove",width=5)
+    label365.grid(row = 5, column = 6)
+    label366 = tk.Label(frame20, text ="43.4", relief ="groove",width=5)
+    label366.grid(row = 5, column = 7)
+    label367 = tk.Label(frame20, text =bin1p["2.36"], relief ="groove",width=5)
+    label367.grid(row = 5, column = 8)
+    label368 = tk.Label(frame20, text =bin1p["0.60"], relief ="groove",width=5)
+    label368.grid(row = 5, column = 9)
+    label369 = tk.Label(frame20, text =bin1p["0.30"], relief ="groove",width=5)
+    label369.grid(row = 5, column = 10)
+    label370 = tk.Label(frame20, text =bin1p["0.15"], relief ="groove",width=5)
+    label370.grid(row = 5, column = 11)
+    label371 = tk.Label(frame20, text =bin1p["0.075"], relief ="groove",width=5)
+    label371.grid(row = 5, column = 12)
+    label372 = tk.Label(frame20, text ="石粉", relief ="groove",width=10)
+    label372.grid(row = 6, column = 0)
+    label373 = tk.Label(frame20, text ="5.9", relief ="groove",width=5)
+    label373.grid(row = 6, column = 1)
+    label374 = tk.Label(frame20, text ="5.9", relief ="groove",width=5)
+    label374.grid(row = 6, column = 2)
+    label375 = tk.Label(frame20, text ="5.9", relief ="groove",width=5)
+    label375.grid(row = 6, column = 3)
+    label376 = tk.Label(frame20, text ="5.9", relief ="groove",width=5)
+    label376.grid(row = 6, column = 4)
+    label377 = tk.Label(frame20, text ="5.9", relief ="groove",width=5)
+    label377.grid(row = 6, column = 5)
+    label378 = tk.Label(frame20, text ="5.9", relief ="groove",width=5)
+    label378.grid(row = 6, column = 6)
+    label379 = tk.Label(frame20, text ="5.9", relief ="groove",width=5)
+    label379.grid(row = 6, column = 7)
+    label380 = tk.Label(frame20, text ="5.9", relief ="groove",width=5)
+    label380.grid(row = 6, column = 8)
+    label381 = tk.Label(frame20, text ="5.9", relief ="groove",width=5)
+    label381.grid(row = 6, column = 9)
+    label382 = tk.Label(frame20, text ="5.9", relief ="groove",width=5)
+    label382.grid(row = 6, column = 10)
+    label383 = tk.Label(frame20, text =ishiko["0.15"], relief ="groove",width=5)
+    label383.grid(row = 6, column = 11)
+    label384 = tk.Label(frame20, text =ishiko["0.075"], relief ="groove",width=5)
+    label384.grid(row = 6, column = 12)
+    label385 = tk.Label(frame20, text ="合成粒度", relief ="groove",width=10)
+    label385.grid(row = 7, column = 0)
+    label386 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label386.grid(row = 7, column = 1)
+    label387 = tk.Label(frame20, text ="100.0", relief ="groove",width=5)
+    label387.grid(row = 7, column = 2)
+    label388 = tk.Label(frame20, text ="100.0", relief ="groove",width=5)
+    label388.grid(row = 7, column = 3)
+    label389 = tk.Label(frame20, text ="100.0", relief ="groove",width=5)
+    label389.grid(row = 7, column = 4)
+    label390 = tk.Label(frame20, text ="100.0", relief ="groove",width=5)
+    label390.grid(row = 7, column = 5)
+    label391 = tk.Label(frame20, text =grain["13.2"], relief ="groove",width=5)
+    label391.grid(row = 7, column = 6)
+    label392 = tk.Label(frame20, text =grain["4.75"], relief ="groove",width=5)
+    label392.grid(row = 7, column = 7)
+    label393 = tk.Label(frame20, text =grain["2.36"], relief ="groove",width=5)
+    label393.grid(row = 7, column = 8)
+    label394 = tk.Label(frame20, text =grain["0.60"], relief ="groove",width=5)
+    label394.grid(row = 7, column = 9)
+    label395 = tk.Label(frame20, text =grain["0.30"], relief ="groove",width=5)
+    label395.grid(row = 7, column = 10)
+    label396 = tk.Label(frame20, text =grain["0.15"], relief ="groove",width=5)
+    label396.grid(row = 7, column = 11)
+    label397 = tk.Label(frame20, text =grain["0.075"], relief ="groove",width=5)
+    label397.grid(row = 7, column = 12)
+    label398 = tk.Label(frame20, text ="目標粒度", relief ="groove",width=10)
+    label398.grid(row = 8, column = 0)
+    label399 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label399.grid(row = 8, column = 1)
+    label400 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label400.grid(row = 8, column = 2)
+    label401 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label401.grid(row = 8, column = 3)
+    label402 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label402.grid(row = 8, column = 4)
+    label403 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label403.grid(row = 8, column = 5)
+    label404 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label404.grid(row = 8, column = 6)
+    label405 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label405.grid(row = 8, column = 7)
+    label406 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label406.grid(row = 8, column = 8)
+    label407 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label407.grid(row = 8, column = 9)
+    label408 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label408.grid(row = 8, column = 10)
+    label409 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label409.grid(row = 8, column = 11)
+    label410 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label410.grid(row = 8, column = 12)
+    label411 = tk.Label(frame20, text ="管理状況", relief ="groove",width=10)
+    label411.grid(row = 9, column = 0)
+    label412 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label412.grid(row = 9, column = 1)
+    label413 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label413.grid(row = 9, column = 2)
+    label414 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label414.grid(row = 9, column = 3)
+    label415 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label415.grid(row = 9, column = 4)
+    label416 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label416.grid(row = 9, column = 5)
+    label417 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label417.grid(row = 9, column = 6)
+    label418 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label418.grid(row = 9, column = 7)
+    label419 = tk.Label(frame20, text ="4.3", relief ="groove",width=5)
+    label419.grid(row = 9, column = 8)
+    label420 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label420.grid(row = 9, column = 9)
+    label421 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label421.grid(row = 9, column = 10)
+    label422 = tk.Label(frame20, text =" ", relief ="groove",width=5)
+    label422.grid(row = 9, column = 11)
+    label423 = tk.Label(frame20, text ="0.7", relief ="groove",width=5)
+    label423.grid(row = 9, column = 12)
+    frame20.place(x=250,y=440)
+    
+
+
