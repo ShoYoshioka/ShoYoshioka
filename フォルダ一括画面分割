@@ -1,0 +1,45 @@
+%matplotlib inline
+import cv2
+import glob
+import sys
+import numpy as np
+from matplotlib import pyplot as plt
+
+files = glob.glob("./simg2/*.jpg")
+print(files)
+n = 1
+
+
+def imshow(img):
+    if img.ndim == 2:
+        plt.imshow(img, cmap='gray')
+    else:
+        plt.imshow(img[...,::-1])
+    plt.axis('off')
+    plt.show()
+
+
+for afile in files:
+    img = cv2.imread( afile )
+    plt.imshow(cv2.cvtColor(img, cv2.COLOR_BGR2RGB))
+
+    vsize, hsize = 512, 512  # 分割後の各セルのサイズ
+    h, w = img.shape[:2]  # 画像の大きさ
+    num_vsplits, num_hsplits = np.floor_divide([h, w], [vsize, hsize])  # 分割数
+
+    # 均等に分割できないと np.spllt() が使えないので、
+    # 除算したときに余りがでないように画像の端数を切り捨てる。
+    crop_img = img[:num_vsplits * vsize, :num_hsplits * hsize]
+    print('{} -> {}'.format(img.shape, crop_img.shape))  # (480, 640, 3) -> (448, 640, 3)
+
+
+    # 分割する。
+    out_imgs = []
+    for h_img in np.vsplit(crop_img, num_vsplits):  # 垂直方向に分割する。
+        for v_img in np.hsplit(h_img, num_hsplits):  # 水平方向に分割する。
+            out_imgs.append(v_img)
+    out_imgs = np.array(out_imgs)
+    print("shape:")
+    print(out_imgs.shape)  
+
+
