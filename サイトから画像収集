@@ -1,0 +1,8 @@
+from bs4 import BeautifulSoup
+from urllib.request import urlopen
+
+text=urlopen("https://www.oreilly.co.jp/index.shtml")
+soup=BeautifulSoup(text)
+element=soup.find_all('img')
+for e in element:
+    print(e.get('src'))
